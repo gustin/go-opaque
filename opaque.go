@@ -1,7 +1,10 @@
 package opaque
 
-import "fmt"
+import (
+	"fmt"
+	"github.com/bwesterb/go-ristretto"
+)
 
 func main() {
-	fmt.Println("vim-go")
+	fmt.Println("~-- OPAQUE --~")
 }
