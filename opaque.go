@@ -5,7 +5,7 @@ import (
 	"github.com/bwesterb/go-ristretto"
 )
 
-func RegistrationInit(username string, alpha []uint32) {
+func RegistrationInit(username string, alpha *ristretto.Point) {
 	fmt.Println("~-> Initial Registration ~-")
 }
 
