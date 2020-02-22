@@ -22,6 +22,11 @@ func TestRegistrationInit(t *testing.T) {
 	var alpha ristretto.Point
 	alpha.ScalarMult(&hashPrime, &r)
 
-	RegistrationInit("jerry-g", &alpha)
+	var privU ristretto.Scalar
+	var pubU ristretto.Point
 
+	privU.Rand()
+	pubU.ScalarMultBase(&privU)
+
+	RegistrationInit("jerry-g", &alpha)
 }
