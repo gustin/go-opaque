@@ -3,6 +3,7 @@ package opaque
 import (
 	"fmt"
 	"github.com/bwesterb/go-ristretto"
+	"lukechampine.com/blake3"
 	"testing"
 )
 
@@ -41,4 +42,7 @@ func TestRegistrationInit(t *testing.T) {
 
 	sub_beta := beta.ScalarMult(&beta, r.Inverse(&r))
 	fmt.Println(sub_beta)
+
+	hasher := blake3.New(0, nil)
+	fmt.Println(hasher)
 }

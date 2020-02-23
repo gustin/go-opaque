@@ -1,2 +1,4 @@
 github.com/bwesterb/go-ristretto v1.1.1 h1:ScMQxfIReRWsrKhQ+rR9R4CoaS+9Mf+GqaGP8NQEEJg=
 github.com/bwesterb/go-ristretto v1.1.1/go.mod h1:fUIoIZaG73pV5biE2Blr2xEzDoMj7NFEuV9ekS419A0=
+lukechampine.com/blake3 v1.0.0 h1:dNj1NVD7SLgkU7dykKjmmOSOTTx7ZmxnDyUyvxnQP2Q=
+lukechampine.com/blake3 v1.0.0/go.mod h1:e0XQzEQp6LtbXBhzYxRoh6s3kcmX+fMMg8sC9VgWloQ=
