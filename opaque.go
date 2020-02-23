@@ -5,7 +5,7 @@ import (
 	"github.com/bwesterb/go-ristretto"
 )
 
-func RegistrationInit(username string, alpha *ristretto.Point) {
+func RegistrationInit(username string, alpha *ristretto.Point) (ristretto.Point, ristretto.Point, ristretto.Point) {
 	fmt.Println("~-> Initial Registration ~-")
 	fmt.Println(alpha)
 
@@ -15,10 +15,6 @@ func RegistrationInit(username string, alpha *ristretto.Point) {
 	secretKey.Rand()
 	publicKey.ScalarMultBase(&secretKey)
 
-	// let k = Scalar::random(&mut cspring); // salt, private
-	// let v: RistrettoPoint = RISTRETTO_BASEPOINT_POINT * k; // salt 2, public
-	// let beta = alpha * k;
-
 	var k ristretto.Scalar
 	k.Rand()
 
@@ -26,6 +22,8 @@ func RegistrationInit(username string, alpha *ristretto.Point) {
 	v.ScalarMultBase(&k)  // salt, public
 	var beta ristretto.Point
 	beta.ScalarMult(&v, &k)
+
+	return beta, v, publicKey
 }
 
 func Opaque() string {
