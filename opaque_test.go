@@ -1,9 +1,9 @@
 package opaque
 
 import (
-	"testing"
-
+	"fmt"
 	"github.com/bwesterb/go-ristretto"
+	"testing"
 )
 
 func TestOpaque(t *testing.T) {
@@ -28,5 +28,17 @@ func TestRegistrationInit(t *testing.T) {
 	privU.Rand()
 	pubU.ScalarMultBase(&privU)
 
-	RegistrationInit("jerry-g", &alpha)
+	beta, v, publicKey := RegistrationInit("jerry-g", &alpha)
+	fmt.Println(beta, v, publicKey)
+
+	// U: upon receiving values beta and v, set the PRF output to
+	// H(x, v, beta*v^{-r})
+
+	// simplified:
+	//  set the function output to H(x,v,beta^{1/r})
+	fmt.Println("-) {{1/r}}:")
+	fmt.Println("-) beta^{{1/r}}:")
+
+	sub_beta := beta.ScalarMult(&beta, r.Inverse(&r))
+	fmt.Println(sub_beta)
 }
