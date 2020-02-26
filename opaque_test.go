@@ -19,7 +19,6 @@ func TestRegistrationInit(t *testing.T) {
 
 	var r ristretto.Scalar
 	r.Rand()
-
 	var alpha ristretto.Point
 	alpha.ScalarMult(&hashPrime, &r)
 
@@ -43,6 +42,12 @@ func TestRegistrationInit(t *testing.T) {
 	sub_beta := beta.ScalarMult(&beta, r.Inverse(&r))
 	fmt.Println(sub_beta)
 
-	hasher := blake3.New(0, nil)
-	fmt.Println(hasher)
+	hasher := blake3.New(64, nil)
+	hasher.Write([]byte(password))
+	hasher.Write(v.Bytes())
+	hasher.Write(sub_beta.Bytes())
+	var rwdU [64]byte
+	hasher.Sum(rwdU[:0])
+
+	fmt.Println("RwdU:", rwdU)
 }
