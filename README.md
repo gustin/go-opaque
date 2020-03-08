@@ -1,7 +1,10 @@
 OPAQUE
 -----
 
-
 [OPAQUE RFC](https://tools.ietf.org/html/draft-krawczyk-cfrg-opaque-03)
 
-[RFC Ristretto] (https://tools.ietf.org/html/draft-hdevalence-cfrg-ristretto-01)
+👉 This is a work-in-progress port of my working Rust version to Go:
+
+🦀 [https://github.com/gustin/opaque](https://github.com/gustin/opaque) 🦀
+
+
